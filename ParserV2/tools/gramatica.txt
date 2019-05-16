@@ -1,0 +1,15 @@
+input -> stmt_list Eol
+stmt_list-> stmt stmt_listp
+stmt_listp-> Eol stmt stmt_listp
+stmt-> Print expr
+stmt -> Ident OpAssign expr
+expr -> term exprp
+exprp -> OpAdd term exprp
+exprp -> OpSub term exprp
+exprp -> OpMul term exprp
+exprp -> OpDiv term exprp
+term -> factor termp
+termp -> OpMul factor termp
+factor -> Number
+factor -> Ident
+factor -> OpenPar expr ClosePar
